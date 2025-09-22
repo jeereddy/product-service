@@ -21,6 +21,11 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
+    @GetMapping("/byName")
+    public ProductResponse findProductByName(@RequestParam String name) {
+        return productService.getProductByName(name);
+    }
+
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public void creatProduct(@RequestBody ProductRequest productRequest) {
